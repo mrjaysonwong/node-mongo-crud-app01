@@ -9,6 +9,8 @@ const fetch = require('node-fetch');
 // const User = require('./models/userModel');
 const Listing = require('./models/listingModel');
 
+// https://www.pexels.com/video/thailand-4133023
+
 const app = express();
 const path = require('path');
 
@@ -61,8 +63,11 @@ app.get('/', (req, res) => {
 
 // view all listings
 app.get('/listings', async (req, res) => {
+  const data = await callApi();
+  const result = getRandomItem(data.hits);
+
   const listings = await Listing.find({});
-  res.render('listings/index', { title: 'All Listings', listings });
+  res.render('listings/index', { title: 'All Listings', listings, result });
 });
 
 // route for create
@@ -113,7 +118,7 @@ app.delete('/listings/:id', async (req, res) => {
 
 // Sign Up route
 app.get('/signup', (req, res) => {
-  res.render('signup', { title: 'Create an Account' });
+  res.render('signup', { title: 'Create an account' });
 });
 
 // Login route
