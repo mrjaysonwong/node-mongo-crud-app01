@@ -1,0 +1,66 @@
+<div class="form-container">
+  <form action="/listings" method="post">
+    <h2>Create Listing</h2>
+    <hr />
+    <!-- Listing input -->
+    <div class="form-outline mb-3">
+      <label class="form-label" for="listing">Listing</label>
+      <input
+        type="text"
+        id="listing"
+        class="form-control"
+        name="name"
+        placeholder="Listing Name"
+        required
+      />
+    </div>
+
+    <!-- Price input -->
+    <div class="form-outline mb-3">
+      <label class="form-label" for="price">Price</label>
+      <input
+        type="number"
+        id="price"
+        class="form-control"
+        name="price"
+        placeholder="Price"
+        min="0"
+        required
+      />
+    </div>
+
+    <!-- Upload Image -->
+    <!-- <div class="form-outline mb-3">
+        <label class="form-label" for="formFile">Upload Image</label>
+        <input type="file" id="formFile" class="form-control" name="img" />
+      </div> -->
+
+    <!-- Description input -->
+    <div class="form-outline mb-3">
+      <label class="form-label" for="description">Description</label>
+      <textarea
+        id="description"
+        class="form-control"
+        name="description"
+        rows="3"
+      ></textarea>
+    </div>
+    <!-- Location input -->
+    <div class="form-outline mb-3">
+      <label class="form-label" for="location">Location</label>
+      <input
+        type="text"
+        id="location"
+        class="form-control"
+        name="location"
+        placeholder="Location"
+      />
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-primary btn-block mb-3">Create</button>
+  </form>
+  <a href="/listings">
+    <button class="btn cancel btn-secondary btn-block mb-3">Cancel</button></a
+  >
+</div>

@@ -1,0 +1,40 @@
+<div class="my-listing">
+  <div class="card">
+    <img
+      class="card-img-top"
+      src="<%= result.webformatURL %>"
+      alt="Card image cap"
+      loading="lazy"
+    />
+    <div class="card-body">
+      <h5 class="card-title"><%= listing.name %></h5>
+      <p class="card-text"><%= listing.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item location"><%= listing.location %></li>
+      <li class="list-group-item">
+        ₱<%= listing.price.toLocaleString('en-us') %> / night
+      </li>
+    </ul>
+    <div class="card-body">
+      <div class="icon-wrapper">
+        <a href="/listings/<%= listing.id %>/edit" class="btn-edit"
+          ><i class="bi bi-pencil-square">Edit</i></a
+        >
+        <form action="/listings/<%= listing.id %>?_method=DELETE" method="post">
+          <button
+            class="btn-delete"
+            onclick="return confirm('Are you sure you want to delete this record');"
+          >
+            <i class="bi bi-trash3-fill">Delete</i>
+          </button>
+        </form>
+      </div>
+      <a href="/listings">
+        <button class="btn cancel btn-secondary btn-block mb-4">
+          Go Back
+        </button></a
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,229 @@
+:root {
+  --container-bgColor: rgb(34, 34, 34);
+  --form-bgColor: rgb(28, 28, 28);
+  --footer-bgColor: rgb(33, 37, 41);
+  --link-hoverColor: gold;
+  --borderRadius: 25px;
+  --linear: linear-gradient(to right, #e21143, #ffb03a) 1;
+}
+
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: var(--link-hoverColor) !important;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+h2 {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+}
+
+h3 {
+  font-size: clamp(0.9rem, 3vw, 1.25rem);
+}
+
+h4 {
+  font-size: clamp(0.8rem, 2vw, 0.8rem);
+}
+
+p {
+  font-size: clamp(0.8rem, 1.25vw, 1rem);
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.wrapper {
+  background: var(--container-bgColor);
+}
+
+.main-container {
+  min-height: 100vh;
+  width: min(80%, 100vw);
+  margin-inline: auto;
+  color: #fff;
+  padding: 2rem 0;
+  margin-top: 60px;
+}
+
+footer {
+  background: var(--footer-bgColor);
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 3px solid transparent;
+  border-style: solid;
+  border-image: var(--linear);
+}
+
+.not-found {
+  text-align: center;
+}
+
+/* Bootstrap */
+.container-fluid {
+  width: min(90%, 100vw);
+  margin-inline: auto;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(245, 245, 245, 0.1);
+}
+
+.navbar-brand {
+  background: -webkit-linear-gradient(60deg, #e21143, #ffb03a);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.auth {
+  margin-left: auto;
+}
+
+.form-container {
+  margin-top: 30px;
+  width: min(90%, 100vw);
+  margin-inline: auto;
+  background-color: var(--form-bgColor);
+  padding: 2rem;
+  border-radius: var(--borderRadius);
+}
+
+.form-container > h1 {
+  margin-bottom: 2rem;
+}
+
+.form-container .form-outline:last-of-type {
+  padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 900px) {
+  .form-container {
+    width: min(40%, 100vw);
+  }
+}
+
+.btn {
+  width: min(100%, 100vw);
+}
+
+.cancel a {
+  color: #fff;
+}
+
+.listings-wrapper {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(90%, 100vw);
+}
+
+.listing {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.listing-name {
+  min-width: 150px;
+}
+
+.details {
+  margin-left: auto;
+  min-width: 120px;
+}
+
+.btn-primary-custom {
+  padding: 0.5rem;
+  border: none;
+  margin-left: 1rem;
+  background: #0d6efd;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.btn-primary-custom:hover {
+  color: gold;
+}
+
+.my-listing {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(90%, 100vw);
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 900px) {
+  .my-listing {
+    width: min(50%, 100vw);
+  }
+}
+
+.my-listing > ul > li {
+  margin: 1rem 0;
+}
+
+strong {
+  color: cornflowerblue;
+}
+
+.card-body {
+  color: black;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-wrapper .bi {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-style: normal;
+}
+
+.card .btn {
+  margin-top: 1rem;
+}
+
+.btn-delete {
+  border: none;
+  background-color: transparent;
+}
+
+.btn-delete:hover {
+  color: red;
+}
+
+.location {
+  font-weight: 500;
+  color: dimgray;
+}

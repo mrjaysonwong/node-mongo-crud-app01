@@ -1,0 +1,15 @@
+<div class="listings-wrapper">
+  <h2>All Listings</h2>
+  <ul class="listings">
+    <% for(let listing of listings) { %>
+    <li class="listing">
+      <span class="listing-name"><%= listing.name %></span>
+      <span class="details"
+        ><a href="/listings/<%= listing.id %>"
+          ><button class="btn-primary-custom">View Details</button></a
+        ></span
+      >
+    </li>
+    <% } %>
+  </ul>
+</div>
