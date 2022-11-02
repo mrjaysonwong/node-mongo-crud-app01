@@ -2,3 +2,4 @@
 
 - simple crud app listing using REST API.
 - EJS for JavaScript Templating
+- mongodb for database
