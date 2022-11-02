@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 // const User = require('./models/userModel');
-const Listing = require('./models/listingModel');
+// const Listing = require('./models/listingModel');
+const Review = require('./models/reviewModel');
 
 // mongoose connection
 mongoose
@@ -13,18 +14,18 @@ mongoose
     console.log(err);
   });
 
-// // seed data to database for testing.
-// const l = new Listing({
-//   name: 'Maple Camp',
-//   price: 1500,
-//   description: 'lorem test',
-//   location: 'Baguio City, Philippines',
-// });
+// seed data to database for testing.
+const r = new Review({
+  name: 'Christopher Newman',
+  review:
+    'In tempora repudiandae aut odit nobis qui illum veritatis eum facere internos non perspiciatis ratione.',
+  rating: 5,
+});
 
-// l.save()
-//   .then((u) => {
-//     console.log(u);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+r.save()
+  .then((r) => {
+    console.log(r);
+  })
+  .catch((err) => {
+    console.log(err);
+  });

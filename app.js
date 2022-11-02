@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const { url, api_key, q, image_type } = require('./api/config');
 const fetch = require('node-fetch');
+const results = require('./seeds/cities');
+const { mapbox_Key } = require('./api/config');
 
 // const User = require('./models/userModel');
 const Listing = require('./models/listingModel');
@@ -40,6 +42,7 @@ app.set('layout', './layouts/main-layout');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
+// function to fetch images
 async function callApi() {
   let pixabayUrl = `${url}?${api_key}&q=${q}&image_type=${image_type}`;
 
@@ -56,6 +59,9 @@ function getRandomItem(arr) {
   return item;
 }
 
+// sort cities
+const sortedCities = results.sort((a, b) => (a.city > b.city ? 1 : -1));
+
 // Home route
 app.get('/', (req, res) => {
   res.render('index', { title: 'Jaystination' });
@@ -70,9 +76,9 @@ app.get('/listings', async (req, res) => {
   res.render('listings/index', { title: 'All Listings', listings, result });
 });
 
-// route for create
+// route for create listing
 app.get('/listings/new', (req, res) => {
-  res.render('listings/new', { title: 'New Listing' });
+  res.render('listings/new', { title: 'New Listing', sortedCities });
 });
 
 // create listing
@@ -89,14 +95,27 @@ app.get('/listings/:id', async (req, res) => {
 
   const { id } = req.params;
   const listing = await Listing.findById(id);
-  res.render('listings/show', { title: `${listing.name}`, listing, result });
+
+  const filteredCity = results.filter((d) => d.city === listing.city);
+
+  const lng = filteredCity[0].lng;
+  const lat = filteredCity[0].lat;
+
+  res.render('listings/show', {
+    title: `${listing.name}`,
+    listing,
+    result,
+    mapbox_Key,
+    lng,
+    lat,
+  });
 });
 
 // route for edit listing
 app.get('/listings/:id/edit', async (req, res) => {
   const { id } = req.params;
   const listing = await Listing.findById(id);
-  res.render('listings/edit', { title: 'Edit Listing', listing });
+  res.render('listings/edit', { title: 'Edit Listing', listing, sortedCities });
 });
 
 // update specific listing

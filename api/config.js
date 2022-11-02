@@ -12,3 +12,7 @@ exports.url = url;
 exports.api_key = api_key;
 exports.q = q;
 exports.image_type = image_type;
+
+const mapbox_Key = `${process.env.MAPBOX_API_KEY}`;
+
+exports.mapbox_Key = mapbox_Key;

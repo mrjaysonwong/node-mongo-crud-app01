@@ -7,15 +7,59 @@
       loading="lazy"
     />
     <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item date-posted">
+          <p>Posted: <%= listing.timestamp %></p>
+        </li>
+      </ul>
       <h5 class="card-title"><%= listing.name %></h5>
       <p class="card-text"><%= listing.description %></p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item location"><%= listing.location %></li>
+      <li class="list-group-item location">
+        <%= listing.city %>, <%= listing.country %>
+      </li>
       <li class="list-group-item">
         ₱<%= listing.price.toLocaleString('en-us') %> / night
       </li>
     </ul>
+    <div id="map"></div>
+    <h6 class="header-title">Reviews</h6>
+    <div class="review-cards-wrapper">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h6 class="card-title">Brady Hooper</h6>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <p>Rating: 4/5</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h6 class="card-title">Rod Ferrell</h6>
+          <p class="card-text">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.
+          </p>
+          <p>Rating: 5/5</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h6 class="card-title">Brendon Bailey</h6>
+          <p class="card-text">
+            Malesuada fames ac turpis egestas integer eget. Nibh ipsum consequat
+            nisl vel pretium lectus quam id leo.
+          </p>
+          <p>Rating: 4/5</p>
+        </div>
+      </div>
+    </div>
+
     <div class="card-body">
       <div class="icon-wrapper">
         <a href="/listings/<%= listing.id %>/edit" class="btn-edit"
@@ -38,3 +82,23 @@
     </div>
   </div>
 </div>
+
+<script>
+  mapboxgl.accessToken = '<%- mapbox_Key %>';
+
+  const x = '<%- lng %>';
+  const y = '<%- lat %>';
+
+  const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    center: [x, y], // starting position [lng, lat]
+    zoom: 11, // starting zoom
+    projection: 'globe', // display the map as a 3D globe
+  });
+
+  map.on('style.load', () => {
+    map.setFog({}); // Set the default atmosphere style
+  });
+</script>

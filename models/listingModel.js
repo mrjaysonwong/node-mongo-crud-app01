@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const listingSchema = new mongoose.Schema({
   name: {
@@ -12,8 +13,17 @@ const listingSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  location: {
+  city: {
     type: String,
+    required: true,
+  },
+  country: {
+    type: String,
+    required: true,
+  },
+  timestamp: {
+    type: String,
+    default: () => moment().format('MMM-D-YYYY'),
   },
 });
 

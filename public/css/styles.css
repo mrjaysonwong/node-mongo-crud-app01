@@ -157,38 +157,8 @@ footer {
   text-align: center;
 }
 
-/* .listing {
-  margin: 1rem 0;
-  display: flex;
-  align-items: center;
-} */
-
-/* .listing-name {
-  min-width: 150px;
-} */
-
-/* .details {
-  margin-left: auto;
-  min-width: 120px;
-} */
-
-/* .btn-primary-custom {
-  padding: 0.5rem;
-  border: none;
-  margin-left: 1rem;
-  background: #0d6efd;
-  border-radius: 4px;
-  color: #fff;
-} */
-
-/* .btn-primary-custom:hover {
-  color: gold;
-} */
-
 .my-listing {
   margin-top: 30px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   width: min(90%, 100vw);
   margin-inline: auto;
@@ -198,10 +168,6 @@ footer {
   .my-listing {
     width: min(50%, 100vw);
   }
-}
-
-.my-listing > ul > li {
-  margin: 1rem 0;
 }
 
 strong {
@@ -235,7 +201,81 @@ strong {
   color: red;
 }
 
-.location {
+.location,
+.date-posted {
   font-weight: 500;
   color: dimgray;
+}
+
+.date-posted {
+  padding: 0;
+}
+
+.add-review-wrapper {
+  width: min(90%, 100vw);
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 900px) {
+  .add-review-wrapper {
+    width: min(50%, 100vw);
+  }
+}
+
+.add-review {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.review-cards-wrapper {
+  padding: 1rem 0;
+  display: grid;
+  grid-column-gap: 1rem;
+  grid-auto-flow: column;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  width: min(90%, 100vw);
+  margin-inline: auto;
+}
+
+.review-cards-wrapper .card-text,
+.review-cards-wrapper p {
+  font-style: italic;
+}
+
+.my-listing .header-title {
+  color: black;
+  width: min(90%, 100vw);
+  margin-top: 1rem;
+  margin-inline: auto;
+}
+
+#map {
+  width: min(90%, 100vw);
+  height: 300px;
+  margin-top: 1rem;
+  margin-inline: auto;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: gray;
+  scroll-behavior: smooth;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgb(255, 255, 255);
+  border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 20px;
 }
